@@ -14,7 +14,7 @@ OBS2Browser aynı anda yalnızca bir izleyiciyi destekleyebilirken, Broadcast Bo
 `OBS2Browser` tarayıcınız ve OBS arasındaki el sıkışmayı kolaylaştırır. Sadece iki metin mesajını iletmek için vardır.
 Bu el sıkışma yapıldıktan sonra `OBS2Browser` asla kullanılmaz. Tüm medya doğrudan OBS ve tarayıcınız arasında değiştirilir.
 
-<img src="./.github/sequence-diagram.png">
+<img src="./assets/sequence-diagram.png">
 
 Bunu doğrulamak için oturum başladıktan sonra `OBS2Browser`'ı kapatabilirsiniz. Tarayıcınız OBS'den kareleri oynatmaya devam edecektir.
 
@@ -36,7 +36,7 @@ Microsoft.Hosting.Lifetime: Information: Now listening on: http://0.0.0.0:8084
 
 [http://localhost:8084](http://localhost:8084) adresini açın ve `Bağlan` butonuna basın.
 
-<img src="./.github/unconnected-browser.png">
+<img src="./assets/unconnected-browser.png">
 
 `OBS2Browser`da WebSocket'in bağlandığını belirten bir günlük göreceksiniz.
 
@@ -52,13 +52,13 @@ Daha sonra OBS'yi aşağıdaki şekilde yapılandırın.
 * **Server** - Sunucu olarak 'http://localhost:8084/whip' adresini yazın.
 * **Bearer Token** - (None) boş bırakın.
 
-<img src="./.github/stream-obs.png">
+<img src="./assets/stream-obs.png">
 
 ### Eğlenin
 
 `Yayını Başlat`a (Start Streaming) basın.
 
-<img src="./.github/live-obs.png">
+<img src="./assets/live-obs.png">
 
 ## Referanslar
 

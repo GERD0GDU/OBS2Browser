@@ -16,7 +16,7 @@ OBS2Browser can only support one viewer at a time, while Broadcast Box has no up
 `OBS2Browser` facilitates the handshake between your browser and OBS. It exists just to transport two text messages.
 After this handshaking is done `OBS2Browser` is never used. All of the media is exchanged directly between OBS and your browser.
 
-<img src="./.github/sequence-diagram.png">
+<img src="./assets/sequence-diagram.png">
 
 To confirm this you can shut down `OBS2Browser` after the session has started. Your browser will continue to play frames from OBS.
 
@@ -38,7 +38,7 @@ Microsoft.Hosting.Lifetime: Information: Now listening on: http://0.0.0.0:8084
 
 Open [http://localhost:8084](http://localhost:8084) and press the `Connect` button.
 
-<img src="./.github/unconnected-browser.png">
+<img src="./assets/unconnected-browser.png">
 
 You will see a log in `OBS2Browser` that says the WebSocket has connected
 
@@ -54,14 +54,14 @@ Next configure OBS to the following
 * **Server** - http://localhost:8084/whip
 * **Bearer Token** - (None)
 
-<img src="./.github/stream-obs.png">
+<img src="./assets/stream-obs.png">
 
 
 ### Enjoy!
 
 Press `Start Streaming`
 
-<img src="./.github/live-obs.png">
+<img src="./assets/live-obs.png">
 
 ## References
 
