@@ -66,5 +66,5 @@ Press `Start Streaming`
 ## References
 
 * [Github OBS2Browser GO (By Sean-Der)](https://github.com/Sean-Der/OBS2Browser)
-* [OBS Studio](https://obsproject.com/tr)
+* [OBS Studio](https://obsproject.com)
 * [Visual Studio Code](https://code.visualstudio.com)
