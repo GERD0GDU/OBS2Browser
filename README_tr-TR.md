@@ -22,7 +22,7 @@ Bunu doğrulamak için oturum başladıktan sonra `OBS2Browser`'ı kapatabilirsi
 
 ### `OBS2Browser` Çalıştır
 
-`go run github.com/sean-der/OBS2Browser@latest` komutunu çalıştırın, varsayılan olarak 8084 portunu dinler. Bunu `HTTP_ADDR` ortam değişkenini ayarlayarak değiştirebilirsiniz.
+Visual Studio'da `F5` tuşuna basarak uygulamayı çalıştırın.
 
 HTTP Sunucusunun başlatıldığını anlamak için bir günlük satırı görmelisiniz.
 
