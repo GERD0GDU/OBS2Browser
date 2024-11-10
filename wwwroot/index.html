@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OBS2Browser</title>
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@3.1.9/dist/browser/signalr.min.js"></script>
+</head>
+
+<body>
+	<button onclick="connect()">Connect</button>
+
+    <script>
+        window.connect = () => {
+            document.body.innerHTML = ''
+            // const url = `${window.location.protocol === 'http:' ? 'ws' : 'wss'}://${window.location.hostname}:${window.location.port}/websocket`
+            // const ws = new WebSocket(url)
+    
+            // SignalR bağlantısı kurun
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("/websocket", {
+                    transport: signalR.HttpTransportType.WebSockets | signalR.HttpTransportType.LongPolling
+                })
+                .build();
+
+            connection.on("ReceiveOfferMessage", (offer) => {
+                const pc = new RTCPeerConnection()
+    
+                pc.onicecandidate = event => {
+                    if (event.candidate === null) {
+                        //ws.send(pc.currentLocalDescription.sdp)
+                        connection.invoke("SendSdpMessage", pc.currentLocalDescription.sdp);
+                    }
+                }
+    
+                let added = false
+                pc.ontrack = function (event) {
+                    if (added) {
+                        return
+                    }
+                    added = true
+
+                    const elOld = document.getElementById("videoPreview1");
+                    if (elOld !== null) {
+                        elOld.remove();
+                    }
+    
+                    const el = document.createElement('video')
+                    el.id = "videoPreview1";
+                    el.srcObject = event.streams[0]
+                    el.autoplay = true
+                    el.controls = true
+    
+                    document.body.appendChild(el)
+                      event.track.onmute = function(event) {
+                        el.parentNode.removeChild(el)
+                      }
+                }
+    
+                pc.setRemoteDescription({sdp: offer, type: 'offer'})
+                pc.createAnswer().then(answer => {
+                    pc.setLocalDescription(answer)
+                })
+            });
+
+            connection.start().then(() => {
+                console.log(`[${(new Date().toISOString())}] Connected to SignalR hub`);
+            }).catch((err) => {
+                console.error(`[${(new Date().toISOString())}] Error connecting to SignalR hub: `, err);
+            });
+        }
+    </script>
+</body>
+</html>
