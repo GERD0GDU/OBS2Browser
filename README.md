@@ -24,7 +24,7 @@ To confirm this you can shut down `OBS2Browser` after the session has started. Y
 
 ### Run `OBS2Browser`
 
-Execute `go run github.com/sean-der/OBS2Browser@latest` by default it listens on port 8084. You can change that by setting the environment variable `HTTP_ADDR`.
+Run the application by pressing `F5` in Visual Studio.
 
 You should see a log line for the HTTP Server starting
 
